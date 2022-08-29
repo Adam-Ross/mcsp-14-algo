@@ -5,7 +5,24 @@
 // ')()' -> false - the opening and closing parens are not balanced.
 // ')(' -> false
 
-function validInput(str) {
-    // should return a true or false depending on if the str is balanced.
+
+
+function validateInput(str) {
+    // create arr
+    const arr = []
+    for(let char of str) {
+
+        if(char === '(') {
+            arr.push(char)
+        } else if(arr.length === 0) {
+            return false
+        } else {
+            arr.pop()
+        }
+    }
+    return arr.length === 0
 }
+
+const str = ')))))((((('
+console.log(validateInput(str))
 
